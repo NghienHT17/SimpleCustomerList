@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot - Hibernate</title>
+</head>
+<body>
+<a th:href="@{/customer-list}">Về lại trang danh sách</a><br/>
+<h1>Add new Customer:</h1>
+<form th:action="@{/saveCustomer}" method="POST" th:object="${customer}">
+    Name: <input th:field="*{name}"/> <br/> <br/>
+    Address: <input th:field="*{address}"/> <br/> <br/>
+    Emails: <input th:field="*{email}"/> <br/> <br/>
+
+    Gender:
+    <!--      Gender: <input th:field="*{gender}"/> <br/> <br/>-->
+    <input type="radio" th:field="*{gender}" th:value="male"/>
+    <label th:text="male"/>
+    <input type="radio" th:field="*{gender}" th:value="female"/>
+    <label th:text="female"/>
+    <br/> <br/>
+
+    <!--      Favorites: <input th:field="*{favorites}"/> <br/> <br/>-->
+    Favorites:
+    <ul style="list-style-type: none;">
+        <li th:each="fa : ${listFavorite}">
+            <input type="checkbox"
+                   th:field="*{favorites}"
+                   th:value="${fa}"/>
+            <label th:text="${fa}"></label>
+        </li>
+    </ul>
+    <br/> <br/>
+
+    Position:
+    <!--      <input th:field="*{position}"/> <br/> <br/>-->
+    <select th:field="*{position}">
+        <option value=""></option>
+        <option th:each="ps : ${listPosition}"
+                th:value="${ps}" th:text="${ps}"></option>
+    </select>
+    <br/>
+    <br/>
+    <input type="submit" value="Submit"/>
+
+</form>
+</body>
+</html>
