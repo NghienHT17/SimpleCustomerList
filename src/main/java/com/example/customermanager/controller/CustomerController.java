@@ -39,7 +39,7 @@ public class CustomerController {
     @RequestMapping("/customer-save")
     //map cái url- castomer save với lại method insertCustomer. Mà trong cái url có 2 value thì cần xem xét để đặt value
     public String insertCustomer(Model model) {
-        model.addAttribute("customer", new CustomerEntity());
+        model.addAttribute("customer", new CustomerEntity ());
         List<String> listFavorite = new ArrayList<String>();
         listFavorite.add("Swimming");
         listFavorite.add("Listening music");
@@ -68,21 +68,21 @@ public class CustomerController {
     public String updateCustomer(@PathVariable int id, Model model) {
         CustomerEntity customer = customerService.findById(id);
         model.addAttribute("customer", customer);
-        model.addAttribute("customer", new CustomerEntity());
-        List<String> listFavorite = new ArrayList<String>();
-        listFavorite.add("Swimming");
-        listFavorite.add("Listening music");
-        listFavorite.add("Walking");
-        listFavorite.add("Watching movie");
-        listFavorite.add("Reading comic");
-        model.addAttribute("listFavorite", listFavorite);
-        List<String> listPosition = new ArrayList<String>();
-        listPosition.add("Developer");
-        listPosition.add("Designer");
-        listPosition.add("Tester");
-        listPosition.add("QA");
-        model.addAttribute("listFavorite", listFavorite);
-        model.addAttribute("listPosition", listPosition);
+//        model.addAttribute("customer", new CustomerEntity());
+//        List<String> listFavorite = new ArrayList<String>();
+//        listFavorite.add("Swimming");
+//        listFavorite.add("Listening music");
+//        listFavorite.add("Walking");
+//        listFavorite.add("Watching movie");
+//        listFavorite.add("Reading comic");
+//        model.addAttribute("listFavorite", listFavorite);
+//        List<String> listPosition = new ArrayList<String>();
+//        listPosition.add("Developer");
+//        listPosition.add("Designer");
+//        listPosition.add("Tester");
+//        listPosition.add("QA");
+//        model.addAttribute("listFavorite", listFavorite);
+//        model.addAttribute("listPosition", listPosition);
         return "customer-update";
     }
 

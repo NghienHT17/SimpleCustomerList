@@ -28,6 +28,7 @@ public class CustomerEntity {
     private String address;
 
     @Column(name = "email")
+//    @email
     private String email;
     @Column(name = "gender")
     private String gender;
